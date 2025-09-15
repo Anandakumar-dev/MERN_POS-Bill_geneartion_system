@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(94, 81, 81, 0.65)),
+        url("D:\CoreWize\POS\POS_MERN-main\client\public\BGPOS.png") center center/cover no-repeat fixed;
+    min-height: 100vh;
+}
+
+/* Container */
+.register-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+/* Glowing Animated Border */
+.form-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 420px;
+    color: #fff;
+    z-index: 1;
+    overflow: hidden;
+    animation: softGlow 3s ease-in-out infinite;
+}
+
+/* Soft Blue Rotating Border */
+.form-container::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background: conic-gradient(from 0deg,
+            #40a9ff,
+            transparent,
+            #40a9ff,
+            transparent,
+            #40a9ff);
+    border-radius: 22px;
+    animation: rotateBorder 6s linear infinite;
+    filter: blur(6px);
+    opacity: 0.5;
+}
+
+@keyframes rotateBorder {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes softGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 12px rgba(64, 169, 255, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(64, 169, 255, 0.6);
+    }
+}
+
+/* Branding */
+.brand-block {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.brand-logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.brand-tagline {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* Form Title */
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Form Inputs */
+.form-input {
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    margin-bottom: 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+/* Buttons */
+.form-button {
+    width: 100%;
+    margin-top: 16px;
+    background: #40a9ff;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.form-button:hover {
+    background: #1890ff;
+    transform: translateY(-2px);
+}
+
+/* Footer Link */
+.form-footer {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.form-link {
+    margin-left: 6px;
+    color: #40a9ff;
+    text-decoration: none;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+}
+
+
+/* dark mode for login page */
+
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.9)),
+        url("D:/CoreWize/POS/POS_MERN-main/client/public/BGPOS.png") center center/cover no-repeat fixed;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-container {
+    background: rgba(25, 25, 25, 0.85);
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-input {
+    background: rgba(0, 0, 0, 0.8);
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-title,
+body.dark-mode .brand-tagline {
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-button {
+    background: #555;
+    color: #fff;
+}
+
+body.dark-mode .form-button:hover {
+    background: #777;
+}
+
+body.dark-mode .form-link {
+    color: #58a6ff;
+}
+
+/* dark mode for login page */
+
+
+/* dark mode for register page */
+
+.ant-form-item-label > label {
+  color: yellow !important; /* Light mode default */
+    color: black !important; /* Light mode default */
+  font-weight: 600;
+}
+
+/* Adjust label color for dark mode */
+body.dark-mode .ant-form-item-label > label {
+  color: #fff !important;
+}

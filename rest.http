@@ -1,0 +1,24 @@
+POST http://localhost:8080/api/quickbilling/clone/6879dde0cc894d4578a1bbd1
+Content-Type: application/json
+
+{
+    
+   "cartItems" : "water",
+   "customerName":"Briyani",
+    "customerNumber":"123",
+    "paymentMode":"cash"
+}
+
+###
+PUT http://localhost:8080/api/items/edit-item
+Content-Type: application/json
+
+{
+    "itemId":"68822d52657db201815ad93e",
+    "price":170,
+     "category" :"drinks", 
+     "taxPercent":"16",
+     "image":"",
+      "stockQuantity":1,
+       "isStockAddition":"no" 
+}

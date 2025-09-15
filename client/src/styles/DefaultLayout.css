@@ -1,0 +1,101 @@
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn .ant-btn-icon {
+    line-height: 0;
+}
+
+.ant-layout-sider {
+    margin-top: 10px;
+    padding-top: 20px;
+    height: 70vh;
+    background-color: rgb(73, 115, 230);
+    border-radius: 10px;
+}
+
+.ant-menu {
+    font-size: 18px !important;
+    border-radius: 10px;
+}
+
+.ant-layout {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    overflow: auto
+}
+
+.ant-card {
+    margin-top: 15px;
+}
+
+.ant-layout-header {
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: gray !important; */
+    background-color: rgb(50, 47, 47) !important;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+
+.cart-item {
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    color: aliceblue;
+    color: #fff;
+    size-adjust: 100;
+}
+
+.cart-item p {
+    margin-top: 14px;
+    padding: 5px;
+    font-weight: bold !important;
+}
+
+
+
+/* Push "My Account" and "Logout" to the bottom of sidebar */
+.ant-layout-sider .ant-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* make Menu fill sidebar height */
+}
+
+.ant-layout-sider .ant-menu-item:nth-last-child(2) {
+    margin-top: 200px;
+    /* push to bottom */
+}
+
+
+
+.ant-layout-sider-children {
+    /* position: fixed; */
+    height: 100%;
+}
+
+.ant-menu-title-content a {
+    border-bottom: 2px solid green;
+    text-decoration: none;
+}
+
+/* Style only the Logout menu item */
+.ant-menu-item[data-menu-id*="logout"] .ant-menu-title-content {
+    border-bottom: 2px solid green;
+}
+
+
+.ant-layout-sider-dark {
+    background-color: #1a1a1a !important;
+    /* your custom dark color */
+}
+
+
+
+/* Example: fix height of sidebar */
+.ant-menu-root {
+    height: 50%;
+    /* full viewport height */
+    overflow-y: auto;
+    /* background-color: aqua; */
+}

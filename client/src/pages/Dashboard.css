@@ -1,0 +1,329 @@
+/* ========== Base Dashboard ========== */
+.dashboard-container {
+  padding: 2rem;
+  margin-top: -25px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ========== Summary Cards ========== */
+.summary-card {
+  position: relative;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 90px;
+  font-size: 18px;
+  background: #ffffff;
+  /* border: 1px solid #e5e7eb; */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Individual card styles */
+.summary-card.sales, 
+.summary-card.purchase, 
+.summary-card.items,
+.summary-card.stock {
+  color: #4CAF50;  
+  box-shadow: 3px 3px 3px rgba(13, 15, 13, 0.35);
+}
+
+.summary-card.sales span,
+.summary-card.purchase span,
+.summary-card.items span,
+.summary-card.stock span
+{
+  color: #000;
+}
+
+/* Hover + Active Effects */
+.summary-card:hover {
+  transform: translateY(-4px);
+  background: #f9fafb;
+}
+
+.summary-card:active {
+  transform: scale(0.98);
+  background: #f0f0f0;
+}
+
+/* Icon/Emoji in cards */
+.summary-card .sp {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 22px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  padding: 4px -6px;   /* ✅ Fixed padding */
+  line-height: 1;
+  color: #fff;        /* Emoji/icon stays visible */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== Graph Section Cards ========== */
+.section-card {
+  margin-top: 2rem;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+
+  /* Matching shadow style with summary cards */
+  box-shadow: 6px 10px 15px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease-in-out;
+}
+
+.section-card.sales {
+  /* box-shadow: 6px 10px 15px rgba(76, 175, 80, 0.35); */
+  /* Green like sales */
+}
+.section-card.purchase {
+  /* box-shadow: 6px 10px 15px rgba(156, 39, 176, 0.35); */
+  /* Purple like purchase */
+}
+.section-card.items {
+  /* box-shadow: 6px 10px 15px rgba(255, 152, 0, 0.35); */
+  /* Orange like items */
+}
+.section-card.stock {
+  /* box-shadow: 6px 10px 15px rgba(3, 169, 244, 0.35); */
+  /* Blue like stock */
+}
+
+.section-card.sales,
+.section-card.purchase,
+.section-card.items,
+.section-card.stock {
+  box-shadow: 3px 3px 3px rgba(13, 15, 13, 0.35);
+}
+
+.section-card:hover {
+  background: #fdfdfd;
+  /* background: gainsboro; */
+  transform: translateY(-4px);
+  box-shadow: 6px 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section-card:active {
+  background: #f3f4f6;
+  transform: scale(0.98);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Section card title */
+.section-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  text-align: center;
+  justify-content: center;
+  border: 2px solid black;
+
+}
+
+/* ===== Graph Section Heading Styles ===== */
+.section-card {
+  text-align: center;
+}
+
+.section-card h4 {
+  display: inline-block;
+  background: #f4f6f8;
+  background-color: transparent;
+  border-bottom: 3px solid #4CAF50;
+  border-right: 3px solid #4CAF50;
+  border-top: 1px solid #4CAF50;
+  border-left: 1px solid #4CAF50;
+  border-radius: 80px;
+  padding: 8px 12px;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+/* ====== option styling========== */
+.form-select, .export-dropdown{
+  border: 1px solid #4CAF50;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode .section-card h4 {
+  background: #2e3242;
+  background-color: transparent;
+  border: 2px solid #555;
+  color: #f9fafb;
+}
+
+/* Place export/filter buttons inside */
+.section-card .controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* ========== Dark Mode for Graph Cards ========== */
+body.dark-mode .section-card {
+  background: #242731;
+  border-color: #2f323e;
+  color: #f9fafb;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .section-card:hover {
+  background: #2e3242;
+  /* color: #102a35; */
+  color: #ffb74d;
+  box-shadow: 4px 8px 22px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .section-card:active {
+  background: #20232d;
+}
+
+
+/* Dark mode summary cards */
+body.dark-mode .summary-card.sales {
+  background-color: #1f3324;
+  color: #4caf50;
+}
+
+body.dark-mode .summary-card.purchase {
+  background-color: #2a1d31;
+  color: #ba68c8;
+}
+
+body.dark-mode .summary-card.items {
+  background-color: #332312;
+  color: #ffb74d;
+}
+
+body.dark-mode .summary-card.stock {
+  background-color: #102a35;
+  color: #4fc3f7;
+}
+
+/* Ant Design table overrides */
+body.dark-mode .ant-table {
+  background: #2a2a3d;
+  color: #ffffff;
+}
+
+body.dark-mode .ant-table-thead>tr>th {
+  background: #333;
+  color: #ffffff;
+}
+
+/* ========== Utility ========== */
+.export-dropdown {
+  min-width: 140px;
+}
+
+.styles {
+  margin-top: -40px;
+}
+
+.section-card .recharts-responsive-container {
+  margin-top: 10px;
+  height: 250px !important;
+  display: flex;
+}
+
+.section-card svg {
+  overflow: visible !important;
+
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 992px) {
+  .summary-card {
+    font-size: 16px;
+    padding: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .summary-card .sp {
+    font-size: 20px;
+    bottom: 8px;
+    right: 10px;
+    padding: 2px 5px;
+  }
+  .section-card {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-card {
+    font-size: 15px;
+    padding: 0.8rem;
+    min-height: 80px;
+  }
+
+  .summary-card .sp {
+    position: static;
+    display: block;
+    margin: 6px auto 0;
+    font-size: 18px;
+  }
+
+  .section-card {
+    padding: 1rem;
+  }
+
+  /* .dashboard-container .row {
+    flex-direction: column;
+    gap: 1rem;
+  } */
+
+  .section-card h4 {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .summary-card {
+    font-size: 14px;
+    padding: 0.6rem;
+    min-height: 70px;
+  }
+  .summary-card .sp {
+    font-size: 16px;
+    margin-top: 4px;
+  }
+  .section-card {
+    padding: 0.8rem;
+  }
+  .section-card h4 {
+    font-size: 15px;
+    border-width: 2px;
+  }
+  .section-card .recharts-responsive-container {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .summary-card {
+    font-size: 13px;
+    padding: 0.5rem;
+    min-height: 65px;
+  }
+  .summary-card .sp {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  .section-card h4 {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+  .section-card .recharts-responsive-container {
+    height: 180px !important;
+  }
+}
