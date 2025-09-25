@@ -54,7 +54,18 @@ const CartPage = () => {
             style={{ cursor: "pointer" }}
             onClick={() => handleDecrement(record)}
           />
-          <b>{record.quantity}</b>
+          <InputNumber 
+          min={1}
+          value={record.quantity}
+          onChange={(val)=>{
+            if(val>0){
+              const updatedItem ={...record, quantity:val};
+              dispatch({type:"UPDATE_CART", payload:updatedItem })
+            }
+          }}
+          style={{width:"70px", textAlign:"center",  }}
+          />
+          {/* <b>{record.quantity}</b> */}
           <PlusSquareOutlined
             className="mx-2"
             style={{ cursor: "pointer" }}
@@ -80,7 +91,7 @@ const CartPage = () => {
         const discount = Number(discountPercent || 0);
 
         if (!basePrice || !quantity) return "₹ 0.00";
-        
+
         const discountedPrice = basePrice * (1 - discount / 100);
         const taxAmount = (discountedPrice * taxPercent) / 100;
         const finalRate = discountedPrice + taxAmount;
@@ -159,6 +170,10 @@ const CartPage = () => {
     const reqObject = {
       customerName: values.customerName,
       customerNumber: values.customerNumber,
+      customerAddress: values.customerAddress,
+      GSTNumber: values.GSTNumber,
+      customerDL: values.customerDL,
+      shippingAddress: values.shippingAddress,
       paymentMode: values.paymentMode,
       discountPercent: discountPercent,
       cartItems,
@@ -226,6 +241,20 @@ const CartPage = () => {
             <Input />
           </Form.Item>
           <Form.Item
+            name="customerAddress"
+            label="Customer Address"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="GSTNumber"
+            label="GST Number"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
             name="paymentMode"
             label="Payment Method"
             rules={[{ required: true }]}
@@ -270,8 +299,3 @@ const CartPage = () => {
 };
 
 export default CartPage;
-
-
-
-
-
