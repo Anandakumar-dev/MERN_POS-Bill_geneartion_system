@@ -147,6 +147,8 @@ function QuickAccess() {
           quantity: item.quantity,
           price: item.price,
           taxPercent: match?.taxPercent || 0,
+          hsnCode:match?.hsnCode || "",
+          unit:match?.unit || "",
           discountPercent,
         };
       });
@@ -156,6 +158,9 @@ function QuickAccess() {
         customerName: selectedBill.customerName || "QuickAccess User",
         customerNumber: selectedBill.customerNumber || "0000000000",
         paymentMode: selectedBill.paymentMode || "QuickAccess",
+        customerAddress: selectedBill?.customerAddress || "N/A",
+        GSTNumber: selectedBill?.GSTNumber || "N/A",
+
         subTotal: subTotal.toFixed(2),
         discountPercent,
         discountAmount: discountAmount.toFixed(2),
@@ -165,7 +170,8 @@ function QuickAccess() {
         totalAmount: finalTotal.toFixed(2),
       };
 
-      await axios.post(`/api/quickbilling/clone/${selectedBill._id}`, payload);
+      // await axios.post(`/api/quickbilling/clone/${selectedBill._id}`, payload);
+      await axios.post(`api/quickbilling/clone/${selectedBill?._id}`, payload);
 
       message.success("New bill generated successfully!");
       setIsModalOpen(false);
