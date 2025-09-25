@@ -29,6 +29,8 @@ const cloneAndGenerateBill = async (req, res) => {
     customerName = "QuickAccess User",
     customerNumber = "0000000000",
     paymentMode = "QuickAccess",
+    customerAddress = "N/A",
+    GSTNumber = "N/A",
     subTotal = 0,
     discountPercent = 0,
     discountAmount = 0,
@@ -62,6 +64,8 @@ const cloneAndGenerateBill = async (req, res) => {
       customerName,
       customerNumber,
       paymentMode,
+      customerAddress,
+      GSTNumber,
       userId: "quick-access", // optional user tracking
 
       subTotal,
