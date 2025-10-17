@@ -2,7 +2,7 @@
                 **A COREWIZE SOLUTIONS PRODUCT**
 
 # Table of Contents
-## 4. Key Functionalities of the product areas:
+## 4. Key Functionalities of the product areas: 
 
 - [4.1 Login Page](#41-login-page)  
   - [4.1.1 Purpose of Login Page](#411-purpose-of-login-page)  
