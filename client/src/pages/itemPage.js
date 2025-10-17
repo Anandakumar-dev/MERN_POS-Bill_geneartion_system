@@ -1,5 +1,4 @@
 
-
 // -------------------------------------------
 
 import React, { useCallback, useEffect, useState } from "react";
@@ -244,9 +243,9 @@ const ItemPage = () => {
           <Form.Item name="hsnCode" label="HSN Code" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
-          <Form.Item name="image" label="Image URL" rules={[{ required: true, message: "Please enter image URL" }]}>
+          {/* <Form.Item name="image" label="Image URL" rules={[{ message: "Please enter image URL" }]}>
             <Input placeholder="https://example.com/image.jpg" />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item name="stockQuantity" label="Stock Quantity" rules={[{ required: true }]}>
             <Input type="number" min={0} onChange={handleNonNegativeChange("stockQuantity")} />
           </Form.Item>
@@ -254,11 +253,12 @@ const ItemPage = () => {
             <Select placeholder="Select unit">
               <Select.Option value="pcs">pcs</Select.Option>
               <Select.Option value="kg">kg</Select.Option>
+              <Select.Option value="carton">carton</Select.Option>
               <Select.Option value="litre">litre</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item name="price" label="Rate" rules={[{ required: true }]}>
-            <Input type="number" min={0} onChange={handleNonNegativeChange("price")} />
+            <Input type="number" min={0} step="0.01" onChange={handleNonNegativeChange("price")} />
           </Form.Item>
           <Form.Item name="taxPercent" label="Tax (%)" rules={[{ required: true }]}>
             <Input type="number" min={0} onChange={handleNonNegativeChange("taxPercent")} />

@@ -38,11 +38,21 @@ router.get("/:id", async (req, res) => {
 // PUT /api/bills/update-customer/:id
 router.put("/update-customer/:id", async (req, res) => {
   try {
-    const { customerName, customerNumber } = req.body;
+    const {       customerName,
+      customerNumber,
+      customerAddress,
+      GSTNumber,
+      customerDL,
+      shippingAddress, } = req.body;
 
     const updatedBill = await billModel.findByIdAndUpdate(
       req.params.id,
-      { customerName, customerNumber },
+      {       customerName,
+      customerNumber,
+      customerAddress,
+      GSTNumber,
+      customerDL,
+      shippingAddress,},
       { new: true }
     );
 

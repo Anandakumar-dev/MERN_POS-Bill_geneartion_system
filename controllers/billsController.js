@@ -11,7 +11,7 @@ const addBill = async (req, res) => {
       return res.status(400).json({ message: "Cart items are missing or invalid." });
     }
 
-    // ✅ Validate stock
+    // ✅ Validate stock 
     for (const item of cartItems) {
       const dbItem = await Item.findById(item._id);
       if (!dbItem) return res.status(404).json({ message: `Item not found: ${item.name}` });

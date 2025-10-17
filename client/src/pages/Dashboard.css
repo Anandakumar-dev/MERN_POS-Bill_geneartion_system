@@ -1,7 +1,7 @@
 /* ========== Base Dashboard ========== */
 .dashboard-container {
   padding: 2rem;
-  margin-top: -25px;
+  margin-top: -27px;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -208,6 +208,9 @@ body.dark-mode .summary-card.stock {
   color: #4fc3f7;
 }
 
+body.dark-mode .summary-card span{
+  color: #fff;
+}
 /* Ant Design table overrides */
 body.dark-mode .ant-table {
   background: #2a2a3d;
@@ -225,7 +228,7 @@ body.dark-mode .ant-table-thead>tr>th {
 }
 
 .styles {
-  margin-top: -40px;
+  margin-top: -20px;
 }
 
 .section-card .recharts-responsive-container {

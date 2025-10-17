@@ -64,34 +64,10 @@ const Homepage = () => {
         placeholder="Search item by name"
         allowClear
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ marginBottom: 16 }}
+        style={{ marginTop: -5, border:"none" }}
       />
 
-      {/* ✅ Category Bar */}
-      {/* <div className="d-flex mb-3">
-        {categories.map((category) => (
-          <div
-            key={category.name}
-            className={`d-flex category px-3 py-2 me-2 rounded ${
-              selectedCategory === category.name.toLowerCase() && "category-active"
-            }`}
-            onClick={() => setSelectedCategory(category.name.toLowerCase())}
-            style={{
-              backgroundColor:
-                selectedCategory === category.name.toLowerCase() ? "#1890ff" : "#f0f0f0",
-              color:
-                selectedCategory === category.name.toLowerCase() ? "#fff" : "#000",
-              fontWeight:
-                selectedCategory === category.name.toLowerCase() ? "bold" : "normal",
-              cursor: "pointer",
-              userSelect: "none",
-            }}
-          >
-            <h4 className="m-0">{category.name}</h4>
-          </div>
-        ))}
-      </div> */}
-
+      {/* category section */}
       <div className="category-section">
         {categories.map((category) => (
           <div

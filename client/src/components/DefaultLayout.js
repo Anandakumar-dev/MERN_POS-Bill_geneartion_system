@@ -1,23 +1,20 @@
-// ----------- updated ------------
+// ----------- simplified version ------------
 import React, { useEffect, useState } from "react";
 import { Layout, Menu, Button, theme } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   MenuOutlined,
-  // MenuUnfoldOutlined,
   UserOutlined,
   LogoutOutlined,
   HomeOutlined,
-  // CopyOutlined,
   UnorderedListOutlined,
-  ShoppingCartOutlined,
-  ShopOutlined,
   BarChartOutlined,
   AppstoreOutlined,
   IdcardOutlined,
   ThunderboltOutlined,
   FileTextOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 
 import "../styles/DefaultLayout.css";
@@ -27,9 +24,7 @@ const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = ({ children }) => {
   const navigate = useNavigate();
-  const { cartItems, loading, } = useSelector(
-    (state) => state.rootReducer
-  );
+  const { cartItems, loading } = useSelector((state) => state.rootReducer);
   const [collapsed, setCollapsed] = useState(false);
   const [storedUser, setStoredUser] = useState(null);
 
@@ -37,11 +32,7 @@ const DefaultLayout = ({ children }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  // ✅ Load user from localStorage on mount
+  // ✅ Load user from localStorage
   useEffect(() => {
     try {
       const data = localStorage.getItem("auth");
@@ -53,8 +44,12 @@ const DefaultLayout = ({ children }) => {
     }
   }, []);
 
+  // ✅ Persist cart items
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
-  // ✅ Ant Design v5 menu item format
+  // ✅ Simple menu items (like Code X)
   const menuItems = [
     {
       key: "/",
@@ -92,6 +87,41 @@ const DefaultLayout = ({ children }) => {
       label: <Link to="/inventory">Inventory</Link>,
     },
     {
+      key: "/employee",
+      icon: <UserOutlined />,
+      label: <Link to="/employee">Employees</Link>,
+    },
+
+    // -------------------- Purchase --------------------
+    {
+      key: "/purchase",
+      icon: <ShoppingCartOutlined />,
+      label: "Purchase",
+      children: [
+        { key: "/purchase/dashboard", label: <Link to="/purchase/dashboard">Purchase Dashboard</Link> },
+        { key: "/purchase/order", label: <Link to="/purchase/order">Purchase Order</Link> },
+        { key: "/purchase/challan", label: <Link to="/purchase/challan">Purchase Challan</Link> },
+        { key: "/purchase/return", label: <Link to="/purchase/return">Purchase Return</Link> },
+        { key: "/purchase/return-challan", label: <Link to="/purchase/return-challan">Purchase Return Challan</Link> },
+        { key: "/purchase/vendor", label: <Link to="/purchase/vendor">Vendor</Link> },
+        { key: "/purchase/purchase-billing", label: <Link to="/purchase/purchase-billing">Purchase Billing</Link> },
+      ],
+    },
+
+    // -------------------- Sales --------------------
+    {
+      key: "/sales",
+      icon: <ShoppingCartOutlined />,
+      label: "Sales",
+      children: [
+        { key: "/sales/dashboard", label: <Link to="/sales/dashboard">Sales Dashboard</Link> },
+        { key: "/sales/order", label: <Link to="/sales/order">Sales Order</Link> },
+        { key: "/sales/challan", label: <Link to="/sales/challan">Sales Challan</Link> },
+        { key: "/sales/return", label: <Link to="/sales/return">Sales Return</Link> },
+        { key: "/sales/return-challan", label: <Link to="/sales/return-challan">Sales Return Challan</Link> },
+      ],
+    },
+    {
       key: "/my-account",
       icon: <IdcardOutlined />,
       label: <Link to="/my-account">My Account</Link>,
@@ -112,26 +142,9 @@ const DefaultLayout = ({ children }) => {
       {loading && <Spinner />}
 
       {/* Sidebar */}
-      {/* <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical">
-          <h2 className="text-center text-white font-bold mt-2">
-            <ShopOutlined />
-          </h2>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={[window.location.pathname]}
-          items={menuItems}
-        />
-      </Sider> */}
-
-      {/* Sidebar */}
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" >
-          {/* <img style={{height:"35px", width:"10px"}} src="/cws.jpg" alt="Logo" className="logo" /> */}
-          {/* <img src="/cws.jpg" alt="Logo" className="brand-logo" /> */}
-          <h2 style={{ color: "yellow", fontSize: "18px", textAlign: "center", color:"white" }}>corewize <br /> solutions</h2>
+        <div className="logo">
+          <img src="/CWW.jpg" alt="Logo" className="brand-logo" />
         </div>
         <div className="demo-logo-vertical text-center mt-2">
           <svg
@@ -172,7 +185,7 @@ const DefaultLayout = ({ children }) => {
           {/* Left: Collapse Button */}
           <Button
             type="text"
-            icon={collapsed ? <MenuOutlined /> : <MenuOutlined />}
+            icon={<MenuOutlined />}
             onClick={() => setCollapsed(!collapsed)}
             style={{ fontSize: 16, width: 50, height: 50, color: "white" }}
           />
@@ -195,15 +208,13 @@ const DefaultLayout = ({ children }) => {
               fontWeight: 500,
             }}
           >
-            {/* <p style={{ margin: 0 }}>{cartItems.length}</p>
-            <ShoppingCartOutlined /> */}
-
             <p style={{ margin: 0 }}>{cartItems.length}</p>
             <svg xmlns="http://www.w3.org/2000/svg"
               width={24} height={24} viewBox="0 0 24 24">
               <path fill="currentColor" fillRule="evenodd" d="M8.418 3.25c.28-.59.884-1 1.582-1h4c.698 0 1.301.41 1.582 1c.683.006 1.216.037 1.692.223a3.25 3.25 0 0 1 1.426 1.09c.367.494.54 1.127.776 1.998l.742 2.722l.28.841l.024.03c.901 1.154.472 2.87-.386 6.301c-.546 2.183-.818 3.274-1.632 3.91c-.814.635-1.939.635-4.189.635h-4.63c-2.25 0-3.375 0-4.189-.635c-.814-.636-1.087-1.727-1.632-3.91c-.858-3.431-1.287-5.147-.386-6.301l.024-.03l.28-.841l.742-2.722c.237-.871.41-1.505.776-1.999a3.25 3.25 0 0 1 1.426-1.089c.476-.186 1.008-.217 1.692-.222m.002 1.502c-.662.007-.928.032-1.148.118a1.75 1.75 0 0 0-.768.587c-.176.237-.28.568-.57 1.635l-.57 2.089C6.384 9 7.778 9 9.684 9h4.631c1.907 0 3.3 0 4.32.18l-.569-2.089c-.29-1.067-.394-1.398-.57-1.635a1.75 1.75 0 0 0-.768-.587c-.22-.086-.486-.111-1.148-.118A1.75 1.75 0 0 1 14 5.75h-4a1.75 1.75 0 0 1-1.58-.998" clipRule="evenodd">
               </path>
             </svg>
+            {/* <ShoppingCartOutlined /> */}
           </div>
         </Header>
 
@@ -221,11 +232,7 @@ const DefaultLayout = ({ children }) => {
         </Content>
       </Layout>
     </Layout>
-
   );
 };
 
 export default DefaultLayout;
-
-
-

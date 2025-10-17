@@ -1,101 +1,275 @@
 :where(.css-dev-only-do-not-override-1rqnfsa).ant-btn .ant-btn-icon {
-    line-height: 0;
+  line-height: 0;
 }
 
+/* Full height sidebar with rounded corners */
 .ant-layout-sider {
-    margin-top: 10px;
-    padding-top: 20px;
-    height: 70vh;
-    background-color: rgb(73, 115, 230);
-    border-radius: 10px;
+  margin-top: 80px;
+  padding-top: 15px;
+  height: 70vh;
+  background-color: rgb(73, 115, 230);
+  border-radius: 10px;
 }
 
+/* Sidebar menu text */
 .ant-menu {
-    font-size: 18px !important;
-    border-radius: 10px;
+  font-size: 16px !important;
+  line-height: 34px !important;
+  padding: 0 6px;
+  overflow: visible !important;
 }
 
-.ant-layout {
-    position: relative;
-    background-color: white;
-    border-radius: 10px;
-    overflow: auto
+/* Submenu items */
+.ant-menu-submenu .ant-menu-item {
+  padding-left: 30px !important;
+  line-height: 30px !important;
+  font-size: 15px !important;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-.ant-card {
-    margin-top: 15px;
+/* Inline submenu accordion */
+.ant-menu-root,
+.ant-menu-sub,
+.ant-menu-submenu {
+  height: auto !important;
+  overflow: visible !important;
 }
 
-.ant-layout-header {
-    line-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: gray !important; */
-    background-color: rgb(50, 47, 47) !important;
-    border-radius: 10px;
-    margin: 10px 10px;
+/* Disable floating submenu popup */
+.ant-menu-submenu-popup {
+  display: none !important;
 }
 
-.cart-item {
-    margin-right: 20px;
-    cursor: pointer;
-    display: flex;
-    color: aliceblue;
-    color: #fff;
-    size-adjust: 100;
+/* Smooth hover effect for submenus */
+.ant-menu-submenu>.ant-menu-submenu-title {
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-.cart-item p {
-    margin-top: 14px;
-    padding: 5px;
-    font-weight: bold !important;
+.ant-menu-submenu:hover>.ant-menu-submenu-title {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
-
-
-/* Push "My Account" and "Logout" to the bottom of sidebar */
+/* Push bottom items (My Account / Logout) */
 .ant-layout-sider .ant-menu {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    /* make Menu fill sidebar height */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .ant-layout-sider .ant-menu-item:nth-last-child(2) {
-    margin-top: 200px;
-    /* push to bottom */
+  margin-top: auto;
 }
 
-
-
 .ant-layout-sider-children {
-    /* position: fixed; */
     height: 100%;
 }
 
+/* Logo styling with smooth collapse */
+.logo {
+  width: 100%;
+  height: 70px;
+  margin-top: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.logo img {
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  margin: 0 auto !important;
+}
+
+.ant-layout-sider-collapsed .logo img {
+  height: 24px !important;
+}
+
+/* Header Styling */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(50, 47, 47) !important;
+  color: white;
+  height: 64px;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Collapse button */
+.collapse-button {
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.collapse-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Welcome text */
+.welcome-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: coral;
+}
+
+/* Cart item */
+.cart-item {
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  margin-right: 50px;
+  size-adjust: 100;
+}
+
+.cart-item:hover {
+  color: #ffd580 !important;
+}
+
+.cart-item p {
+  margin-top: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  padding: 5px;
+  font-weight: bold !important;
+}
+
+/* Tabs Styling (Removed in simplified version) */
+.tabs-container {
+  background: #fff;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.ant-tabs-tab:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease;
+}
+
+.ant-tabs-tab-active {
+  font-weight: bold;
+  color: #1a73e8 !important;
+}
+
+.ant-tabs-card .ant-tabs-tab {
+  border-radius: 6px 6px 0 0;
+  transition: background 0.2s ease;
+}
+
+/* Plus button for new tab */
+.ant-tabs-nav .ant-tabs-nav-extra {
+  display: flex;
+  align-items: center;
+}
+
+/* Content Cards / Panels */
+.ant-card {
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.ant-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Layout Base Styling */
+.ant-layout {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.ant-layout-header {
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(50, 47, 47) !important;
+  border-radius: 10px;
+  margin: 10px 10px;
+  color: white;
+}
+
+
+/* Menu Link Styling */
 .ant-menu-title-content a {
-    border-bottom: 2px solid green;
-    text-decoration: none;
+  border-bottom: 2px solid green;
+  text-decoration: none;
 }
 
 /* Style only the Logout menu item */
 .ant-menu-item[data-menu-id*="logout"] .ant-menu-title-content {
-    border-bottom: 2px solid green;
+  border-bottom: 2px solid green;
 }
-
 
 .ant-layout-sider-dark {
-    background-color: #1a1a1a !important;
-    /* your custom dark color */
+  background-color: #1a1a1a !important;
 }
 
 
+/* Responsive Enhancements */
+@media (max-width: 1200px) {
+  .ant-layout-sider {
+    width: 200px !important;
+  }
+}
 
-/* Example: fix height of sidebar */
-.ant-menu-root {
-    height: 50%;
-    /* full viewport height */
-    overflow-y: auto;
-    /* background-color: aqua; */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: fixed;
+    z-index: 200;
+    height: 100vh;
+  }
+
+  .tabs-container {
+    padding: 0 8px;
+  }
+}
+
+/* Smooth submenu open/close */
+.ant-menu-submenu>.ant-menu {
+  transition: all 0.3s ease;
+  overflow: hidden !important;
+}
+
+/* Ensure submenu items animate properly */
+.ant-menu-submenu .ant-menu-item {
+  transition: padding 0.25s ease, line-height 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* Button icon alignment */
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-btn .ant-btn-icon {
+  line-height: 0;
+}
+
+.ant-menu-submenu>.ant-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.ant-menu-submenu-open>.ant-menu {
+  max-height: 500px;
+}
+
+.ant-layout-content {
+  overflow: auto;
+  padding: 16px;
 }

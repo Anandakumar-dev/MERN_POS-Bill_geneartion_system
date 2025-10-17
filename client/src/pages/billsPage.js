@@ -198,6 +198,7 @@ function Bills() {
                 {/* <h3 style={{ margin: 0 }}>CREDIT SALE INVOICE</h3> */}
                 <p style={{ margin: "0", marginLeft: "10px", fontSize: "18px" }}><b>Cus.Name:{selectedBill.customerName}</b></p>
                 <p style={{ margin: "0", marginLeft: "10px" }}>Customer Address:{selectedBill.customerAddress} </p>
+                <p style={{ margin: "0", marginLeft: "10px" }}>Customer Number:{selectedBill.customerNumber} </p>
                 <p style={{ margin: "0", marginLeft: "10px" }}>G.S.T IN:{selectedBill.GSTNumber || "-"}</p>
                 <p style={{ margin: "0", marginLeft: "10px" }}>D.L No:{selectedBill.customerDL || "-"}</p>
                 {/* <p style={{ margin: "0", marginLeft:"20px" }}>Ship To:{selectedBill.shippingAddress || selectedBill.customerAddress || "-"}</p> */}
@@ -498,3 +499,7 @@ function Bills() {
 
 
 export default Bills;
+
+
+
+

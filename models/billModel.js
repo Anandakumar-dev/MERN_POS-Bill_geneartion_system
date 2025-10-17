@@ -4,6 +4,8 @@ const billSchema = mongoose.Schema(
   {
     customerName: { type: String, required: true },
     customerNumber: { type: String, required: true },
+    GSTNumber: { type: String, required: true },
+    customerAddress: { type: String, required: true },
     paymentMode: { type: String, required: true },
     cartItems: { type: Array, required: true },
 

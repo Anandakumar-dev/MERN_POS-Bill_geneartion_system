@@ -11,11 +11,13 @@ const getItemController = async (req, res) => {
   }
 };
 
+
 // Add a new item
 const addItemController = async (req, res) => {
   try {
 
-    let { name, price, category, image, stockQuantity, hsnCode, unit, taxPercent } = req.body;
+    // let { name, price, category, image, stockQuantity, hsnCode, unit, taxPercent } = req.body;
+        let { name, price, category, stockQuantity, hsnCode, unit, taxPercent } = req.body;
 
     // name = name.chartAt(0).toUpperCase()+name.slice(1).toLowerCase();
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -33,7 +35,7 @@ const addItemController = async (req, res) => {
       taxPercent,
       price,
       category,
-      image,
+      // image,
       stockQuantity: stockQuantity || 0,
     });
 
@@ -50,7 +52,8 @@ const editItemController = async (req, res) => {
   try {
     // const { itemId, price, category, taxPercent,image, stockQuantity, isStockAddition } = req.body;
 
-    const { itemId, price, category, taxPercent, image, stockQuantity, isStockAddition } = req.body;
+    // const { itemId, price, category, taxPercent, image, stockQuantity, isStockAddition } = req.body;
+        const { itemId, price,hsnCode,unit, category, taxPercent, stockQuantity, isStockAddition, } = req.body;
 
     const numericTax = Number(taxPercent); // force conversion
 
@@ -77,7 +80,9 @@ const editItemController = async (req, res) => {
         price,
         taxPercent: numericTax,
         category,
-        image,
+        unit,
+        hsnCode,
+        // image,
         stockQuantity: updatedStock,
       },
       { new: true }

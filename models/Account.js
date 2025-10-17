@@ -6,9 +6,17 @@ const accountSchema = new mongoose.Schema(
     tagline: { type: String, default: "" },
     address: { type: String, default: "" },
     landmark: { type: String, default: "" },
+    gmail: { type: String, default: "" },
     phone: { type: String, default: "" },
     mobile: { type: String, default: "" },
     gstin: { type: String, default: "" },
+    logo:{type:String, default:""},
+
+    // ✅ Added banking fields
+    bankName: { type: String, default: "" },
+    accountNumber: { type: String, default: "" },
+    ifsc: { type: String, default: "" },
+    branch: { type: String, default: "" },
   },
   { timestamps: true }
 );
